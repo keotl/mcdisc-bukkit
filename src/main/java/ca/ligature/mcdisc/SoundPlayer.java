@@ -1,9 +1,6 @@
 package ca.ligature.mcdisc;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Server;
-import org.bukkit.World;
-import org.bukkit.command.CommandSender;
 
 public class SoundPlayer {
 

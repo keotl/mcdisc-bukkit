@@ -1,6 +1,5 @@
 package ca.ligature.mcdisc;
 
-import org.bukkit.loot.LootTables;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class McDiscPlugin extends JavaPlugin {

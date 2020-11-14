@@ -1,19 +1,12 @@
 package ca.ligature.mcdisc;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.block.data.type.Jukebox;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Item;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.metadata.MetadataValueAdapter;
 
 public class JukeboxEventListener implements Listener {
   private static final Material CUSTOM_DISC_ID = Material.MUSIC_DISC_FAR;
@@ -28,7 +21,6 @@ public class JukeboxEventListener implements Listener {
         PlayingSoundStore.INSTANCE.currentSound(event.getPlayer().getName()).ifPresent(sound -> {
           soundPlayer.stopSound(sound);
           PlayingSoundStore.INSTANCE.untrack(event.getPlayer().getName());
-//          event.setCancelled(true);
         });
 
         ItemStack item = event.getItem();

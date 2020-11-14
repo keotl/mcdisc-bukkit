@@ -1,20 +1,15 @@
 package ca.ligature.mcdisc;
 
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.IntStream;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.BlockState;
-import org.bukkit.block.Chest;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.world.ChunkPopulateEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 public class WorldGenerationEventListener implements Listener {
   private int numberOfDiscs;
@@ -28,16 +23,16 @@ public class WorldGenerationEventListener implements Listener {
     BlockState[] tileEntities = e.getChunk().getTileEntities();
     for (BlockState state : tileEntities) {
       if (state.getType() == Material.CHEST) {
-        System.out.println("foobar!!! chest at:");
-        System.out.println(state.getX() + "," + state.getY() + "," + state.getZ());
+//        System.out.println("mcdisc: chest at:");
+//        System.out.println(state.getX() + "," + state.getY() + "," + state.getZ());
         generateChestDisc(state.getX(), state.getY(), state.getZ());
       }
     }
     for (Entity entity : e.getChunk().getEntities()) {
       if (entity.getType() == EntityType.MINECART_CHEST) {
         Location location = entity.getLocation();
-        System.out.println("foobar!!! chest minecart at:");
-        System.out.println(location.getBlockX() + "," + location.getY() + "," + location.getZ());
+//        System.out.println("foobar!!! chest minecart at:");
+//        System.out.println(location.getBlockX() + "," + location.getY() + "," + location.getZ());
         generateMinecartDisc(location.getBlockX(), location.getBlockY(), location.getBlockZ());
       }
     }
