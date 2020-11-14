@@ -1,0 +1,4 @@
+name: McDiscPlugin
+version: 0.1
+main: ca.ligature.mcdisc.McDiscPlugin
+api-version: 1.16

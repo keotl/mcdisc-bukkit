@@ -1,0 +1,1 @@
+/give @s minecraft:music_disc_far{CustomModelData:1, display: {Name: "{\"translate\": \"item.record.item.mcdisc.1.desc\"}"}}
