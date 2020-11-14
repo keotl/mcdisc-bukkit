@@ -1,10 +1,7 @@
 package ca.ligature.mcdisc;
 
-import java.io.File;
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.PluginDescriptionFile;
+import org.bukkit.loot.LootTables;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.plugin.java.JavaPluginLoader;
 
 public class McDiscPlugin extends JavaPlugin {
 
@@ -13,7 +10,7 @@ public class McDiscPlugin extends JavaPlugin {
   @Override
   public void onDisable() {
     super.onDisable();
-    getLogger().warning("foobar! unloaded mcdisc plugin");
+    getLogger().warning("McDisc! unloaded mcdisc plugin");
   }
 
   @Override
@@ -21,6 +18,8 @@ public class McDiscPlugin extends JavaPlugin {
     super.onEnable();
     INSTANCE = this;
     getServer().getPluginManager().registerEvents(new JukeboxEventListener(), this);
-    getLogger().warning("foobar! loaded mcdisc plugin");
+    getServer().getPluginManager().registerEvents(new WorldGenerationEventListener(190), this);
+    getLogger().warning("McDisc! loaded mcdisc plugin");
+    getCommand("customdisc").setExecutor(new CreateRecordCommand());
   }
 }
