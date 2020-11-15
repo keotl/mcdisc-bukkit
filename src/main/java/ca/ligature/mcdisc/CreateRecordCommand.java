@@ -1,5 +1,6 @@
 package ca.ligature.mcdisc;
 
+import java.util.Arrays;
 import org.bukkit.Chunk;
 import org.bukkit.Material;
 import org.bukkit.block.BlockState;
@@ -18,13 +19,7 @@ public class CreateRecordCommand implements CommandExecutor {
       if (!player.getName().equals("kento2300")) {
         return false;
       }
-      Chunk chunkAt = player.getWorld().getChunkAt(player.getLocation());
-      for (BlockState state : chunkAt.getTileEntities()) {
-        if (state.getType() == Material.CHEST) {
-          new WorldGenerationEventListener(190).generateChestDisc(state.getX(), state.getY(), state.getZ());
-        }
-      }
-      return true;
+      Looter.INSTANCE.rollLoot(Arrays.stream(strings).findFirst().orElse(player.getName()), 1, "administrator privileges");
     }
     return false;
   }
