@@ -7,7 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class McDiscPlugin extends JavaPlugin {
 
   public static int NUMBER_OF_DISCS = 190;
-  public static final TemporalAmount QUOTA_RESET_TIME = Duration.ofHours(2);
+  public static final TemporalAmount QUOTA_RESET_TIME = Duration.ofHours(4);
 //  public static final TemporalAmount QUOTA_RESET_TIME = Duration.ofSeconds(30);
   public static McDiscPlugin INSTANCE;
 

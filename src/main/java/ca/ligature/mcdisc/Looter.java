@@ -4,7 +4,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import org.bukkit.Bukkit;
 
 public class Looter {
-  private static final String COMMAND_TEMPLATE = "tellraw @a [\"\",{\"text\":\"The gods smile upon \",\"color\":\"dark_gray\"},{\"text\":\"@@PLAYER@@\",\"bold\":true,\"italic\":true,\"underlined\":true,\"color\":\"dark_red\"},{\"text\":\" for their \",\"color\":\"dark_gray\"},{\"text\":\"@@ACTION@@\",\"bold\":true,\"italic\":true,\"underlined\":true,\"color\":\"dark_red\"},{\"text\":\"!\",\"color\":\"dark_gray\"}]";
+  private static final String COMMAND_TEMPLATE = "tellraw @a [\"\",{\"text\":\"The gods smile upon \",\"color\":\"gray\"},{\"text\":\"@@PLAYER@@\",\"color\":\"red\"},{\"text\":\" for their \",\"color\":\"gray\"},{\"text\":\"@@ACTION@@\",\"color\":\"red\"},{\"text\":\"!\",\"color\":\"gray\"}]";
   public static final Looter INSTANCE = new Looter();
 
   public void rollLoot(String player, int denominator, String messageAction) {
