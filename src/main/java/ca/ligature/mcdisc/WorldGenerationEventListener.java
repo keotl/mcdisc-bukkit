@@ -21,19 +21,29 @@ public class WorldGenerationEventListener implements Listener {
   @EventHandler
   public void onGeneration(ChunkPopulateEvent e) {
     BlockState[] tileEntities = e.getChunk().getTileEntities();
+    int quota = 0;
     for (BlockState state : tileEntities) {
+      if (quota >= 2) {
+        break;
+      }
       if (state.getType() == Material.CHEST) {
 //        System.out.println("mcdisc: chest at:");
 //        System.out.println(state.getX() + "," + state.getY() + "," + state.getZ());
         generateChestDisc(state.getX(), state.getY(), state.getZ());
+        quota++;
       }
     }
+    quota = 0;
     for (Entity entity : e.getChunk().getEntities()) {
+      if (quota >= 2) {
+        break;
+      }
       if (entity.getType() == EntityType.MINECART_CHEST) {
         Location location = entity.getLocation();
 //        System.out.println("foobar!!! chest minecart at:");
 //        System.out.println(location.getBlockX() + "," + location.getY() + "," + location.getZ());
         generateMinecartDisc(location.getBlockX(), location.getBlockY(), location.getBlockZ());
+        quota++;
       }
     }
   }

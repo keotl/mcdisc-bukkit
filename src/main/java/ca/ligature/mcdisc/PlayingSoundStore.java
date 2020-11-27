@@ -6,21 +6,21 @@ import java.util.Optional;
 public class PlayingSoundStore {
   public static final PlayingSoundStore INSTANCE = new PlayingSoundStore();
 
-  private HashMap<String, String> playerSounds = new HashMap<String, String>();
+  private HashMap<Position, String> jukeboxSounds = new HashMap<>();
 
-  public Optional<String> currentSound(String player) {
-    if (playerSounds.containsKey(player)) {
-      return Optional.of(playerSounds.get(player));
+  public Optional<String> currentSound(Position position) {
+    if (jukeboxSounds.containsKey(position)) {
+      return Optional.of(jukeboxSounds.get(position));
     } else {
       return Optional.empty();
     }
   }
 
-  public void trackPlayerSound(String player, String sound) {
-    playerSounds.put(player, sound);
+  public void track(Position jukeboxBlock, String sound) {
+    jukeboxSounds.put(jukeboxBlock, sound);
   }
 
-  public void untrack(String player) {
-    playerSounds.remove(player);
+  public void untrack(Position jukeboxBlock) {
+    jukeboxSounds.remove(jukeboxBlock);
   }
 }
